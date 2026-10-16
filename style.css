@@ -47,3 +47,68 @@ main {
   background: #1d3557;
   color: #ffffff;
 }
+.hero {
+  text-align: center;
+  padding: 80px 16px;
+  background: #1d3557;
+  color: #ffffff;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin: 0 0 8px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.search-form input,
+.search-form select,
+.search-form button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.search-form button {
+  background: #e63946;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.featured {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 0 16px;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.property-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.property-image {
+  height: 160px;
+  background: #cfd8e3;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-weight: bold;
+  color: #e63946;
+}
