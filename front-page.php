@@ -20,26 +20,36 @@
   <h2>Featured properties</h2>
   <div class="property-grid">
 
-    <article class="property-card">
-      <div class="property-image"></div>
-      <h3>2 BHK Apartment</h3>
-      <p class="location">Pune</p>
-      <p class="price">₹55,00,000</p>
-    </article>
+   <?php
+$properties = new WP_Query(array(
+  'post_type'      => 'property',
+  'posts_per_page' => 3,
+));
 
+if ($properties->have_posts()) :
+  while ($properties->have_posts()) : $properties->the_post();
+    $price    = get_post_meta(get_the_ID(), '_property_price', true);
+    $location = get_post_meta(get_the_ID(), '_property_location', true);
+    ?>
     <article class="property-card">
-      <div class="property-image"></div>
-      <h3>3 BHK Villa</h3>
-      <p class="location">Mulshi</p>
-      <p class="price">₹1,20,00,000</p>
+      <a href="<?php the_permalink(); ?>">
+        <?php if (has_post_thumbnail()) : ?>
+          <?php the_post_thumbnail('medium_large', array('class' => 'property-thumb')); ?>
+        <?php else : ?>
+          <div class="property-image"></div>
+        <?php endif; ?>
+        <h3><?php the_title(); ?></h3>
+      </a>
+      <p class="location"><?php echo esc_html($location); ?></p>
+      <p class="price">₹<?php echo esc_html(number_format_i18n((float) $price)); ?></p>
     </article>
-
-    <article class="property-card">
-      <div class="property-image"></div>
-      <h3>Residential Plot</h3>
-      <p class="location">Lonavala</p>
-      <p class="price">₹35,00,000</p>
-    </article>
+    <?php
+  endwhile;
+  wp_reset_postdata();
+else :
+  echo '<p>No properties yet.</p>';
+endif;
+?>
 
   </div>
 </section>

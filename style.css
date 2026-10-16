@@ -112,3 +112,15 @@ main {
   font-weight: bold;
   color: #e63946;
 }
+.property-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.property-card a {
+  text-decoration: none;
+  color: #1d3557;
+}
