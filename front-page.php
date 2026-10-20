@@ -20,7 +20,7 @@
   <h2>Featured properties</h2>
   <div class="property-grid">
 
-   <?php
+    <?php
 $properties = new WP_Query(array(
   'post_type'      => 'property',
   'posts_per_page' => 3,
@@ -49,7 +49,7 @@ if ($properties->have_posts()) :
 else :
   echo '<p>No properties yet.</p>';
 endif;
-?>
+?>3
 
   </div>
 </section>
